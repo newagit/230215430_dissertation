@@ -1,0 +1,11 @@
+
+streamlit
+pymongo
+face_recognition
+python-dotenv
+bcrypt
+numpy
+pandas
+opencv-python
+pillow
+requests
