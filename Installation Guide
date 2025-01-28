@@ -1,0 +1,97 @@
+Criminal Face Recognition System
+Introduction
+This project implements a Criminal Face Recognition System using Streamlit, OpenCV, and MongoDB. It allows:
+
+Face registration with user details (e.g., name, age, gender, crime).
+Face recognition to identify stored criminals in real time.
+Secure login for admin access.
+Features
+Login Page:
+Secure admin login with hashed passwords.
+Face Registration:
+Captures and stores faces with metadata in MongoDB.
+Stores face data in .pkl format for quick processing.
+Face Recognition:
+Detects and matches faces against the database using the KNN algorithm.
+Data Management:
+Allows CRUD operations on criminal records.
+Installation Instructions
+1. Create and Activate a Python Virtual Environment
+Run the following commands:
+
+
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# For Windows:
+dace_env\Scripts\activate
+
+# For macOS/Linux:
+source dace_env/bin/activate
+2. Install Required Libraries
+After activating the virtual environment, install the required Python packages:
+
+
+pip install streamlit pymongo opencv-python numpy scikit-learn pickle5 pywin32 python-dotenv
+MongoDB Setup
+Install and start MongoDB on your machine.
+Run the following command to start the MongoDB server:
+
+mongod
+Optional: Use MongoDB Compass to visualize your database.
+.env File for Sensitive Information
+Create a .env file in your project directory to store sensitive information (e.g., MongoDB connection string):
+
+
+MONGO_URI=mongodb://localhost:27017/
+SECRET_KEY=your-secret-key
+Install dotenv to load environment variables:
+
+
+pip install python-dotenv
+Update your Python code to load .env values:
+
+python
+
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+client = MongoClient(os.getenv("MONGO_URI"))
+How to Run the Application
+Save the application code in a file named app.py.
+Launch the application using the following command:
+
+streamlit run app.py
+The app will open in your default browser, or access it at:
+Local: http://localhost:8501
+Network: http://<your-ip>:8501
+Directory Setup
+Ensure the following directory structure exists:
+
+data/: Used to store .pkl files (for face data).
+If the directory doesn’t exist, create it using:
+
+
+mkdir data
+Key Notes
+Always add .env to your .gitignore to prevent sensitive information from being uploaded to version control.
+
+# .gitignore
+.env
+Test all functionalities thoroughly:
+Login.
+Face registration.
+Face recognition.
+MongoDB data retrieval.
+Debugging Commands
+Check Python Version:
+
+
+python --version
+Fix Missing Packages:
+
+
+pip install <package_name>
